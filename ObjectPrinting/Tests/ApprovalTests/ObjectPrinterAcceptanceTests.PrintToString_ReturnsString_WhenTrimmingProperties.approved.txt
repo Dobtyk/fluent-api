@@ -1,0 +1,12 @@
+﻿Family
+	Father = Person
+		Id = Guid
+		Name = Ale
+		Height = 0
+		Age = 19
+	Mother = Person
+		Id = Guid
+		Name = Kat
+		Height = 0
+		Age = 21
+	Age = 55335,57

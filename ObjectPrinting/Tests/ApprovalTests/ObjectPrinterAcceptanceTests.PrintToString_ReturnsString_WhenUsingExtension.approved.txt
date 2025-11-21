@@ -1,0 +1,12 @@
+﻿Family
+	Father = Person
+		Id = Guid
+		Name = Alex
+		Height = 0
+		Age = 19
+	Mother = Person
+		Id = Guid
+		Name = Kate
+		Height = 0
+		Age = 21
+	Age = 55335,57

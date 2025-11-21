@@ -1,0 +1,11 @@
+﻿Family
+	Father = Person
+		Id = Guid
+		Name = Al
+		Height = 0
+	Mother = Person
+		Id = Guid
+		Name = Ka
+		Height = 0
+		Age = 21INT:
+	Age = A55335,57:

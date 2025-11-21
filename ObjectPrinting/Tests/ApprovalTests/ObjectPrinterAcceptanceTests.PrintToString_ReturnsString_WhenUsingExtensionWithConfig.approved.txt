@@ -1,0 +1,8 @@
+﻿Family
+	Father = Person
+		Id = Guid
+		Height = 0
+	Mother = Person
+		Id = Guid
+		Height = 0
+	Age = 55335,57
