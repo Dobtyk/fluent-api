@@ -135,7 +135,11 @@ namespace ObjectPrinting
             
             if (expression is UnaryExpression unaryExpression)
             {
-                return GetPropertyFullName(unaryExpression.Operand);
+                if (unaryExpression.NodeType == ExpressionType.Convert)
+                {
+                    return GetPropertyFullName(unaryExpression.Operand);
+                }
+                throw new InvalidOperationException("Unsupported expression type");
             }
             
             if (expression is ParameterExpression)
