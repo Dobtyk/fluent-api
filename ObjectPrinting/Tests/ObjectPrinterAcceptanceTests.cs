@@ -20,7 +20,9 @@ namespace ObjectPrinting.Tests
             {
                 Father = new Person { Name = "Alex", Age = 19 },
                 Mother = new Person { Name = "Kate", Age = 21 },
-                Age = 55335.57d
+                Age = 55335.57d,
+                Parents = [new Person { Name = "Alex", Age = 19 }, new Person { Name = "Kate", Age = 21 }],
+                Children = [new Person { Name = "Alex", Age = 19 }, new Person { Name = "Kate", Age = 21 }]
             };
         }
         

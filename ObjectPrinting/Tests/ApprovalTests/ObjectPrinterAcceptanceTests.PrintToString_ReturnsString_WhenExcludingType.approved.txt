@@ -1,4 +1,22 @@
 ﻿Family
+	Parents = List`1
+		[0] = Person
+			Id = Guid
+			Name = Alex
+			Height = 0
+		[1] = Person
+			Id = Guid
+			Name = Kate
+			Height = 0
+	Children = Person[]
+		[0] = Person
+			Id = Guid
+			Name = Alex
+			Height = 0
+		[1] = Person
+			Id = Guid
+			Name = Kate
+			Height = 0
 	Father = Person
 		Id = Guid
 		Name = Alex

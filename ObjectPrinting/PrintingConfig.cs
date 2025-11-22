@@ -41,8 +41,13 @@ namespace ObjectPrinting
             
             if (finalTypes.Contains(obj.GetType()))
                 return obj + Environment.NewLine;
+            
+            if (obj is System.Collections.IEnumerable and not string)
+            {
+                return ProcessIEnumerable(obj, nestingLevel);
+            }
 
-            var identation = new string('\t', nestingLevel + 1);
+            var indentation = new string('\t', nestingLevel + 1);
             var sb = new StringBuilder();
             var type = obj.GetType();
             sb.AppendLine(type.Name);
@@ -60,7 +65,7 @@ namespace ObjectPrinting
                 if (excludedTypes.Contains(propertyInfo.PropertyType))
                     continue;
                 
-                sb.Append(identation + propertyInfo.Name + " = " +
+                sb.Append(indentation + propertyInfo.Name + " = " +
                           PrintToString(propertyInfo.GetValue(obj),
                               nestingLevel + 1));
                 
@@ -68,6 +73,28 @@ namespace ObjectPrinting
             }
             return sb.ToString();
         }
+
+        private string ProcessIEnumerable(object obj, int nestingLevel)
+        {
+            var indentation = new string('\t', nestingLevel + 1);
+            var sb = new StringBuilder();
+            sb.AppendLine(obj.GetType().Name);
+                
+            var enumerable = (System.Collections.IEnumerable)obj;
+            var index = 0;
+                
+            foreach (var item in enumerable)
+            {
+                currentPropertyFullName.Push($"[{index}]");
+                sb.Append(indentation + $"[{index}] = " + 
+                          PrintToString(item, nestingLevel + 1));
+                currentPropertyFullName.Pop();
+                index++;
+            }
+                
+            return sb.ToString();
+        }
+
 
         public PrintingConfig<TOwner> Exclude<T>()
         {
