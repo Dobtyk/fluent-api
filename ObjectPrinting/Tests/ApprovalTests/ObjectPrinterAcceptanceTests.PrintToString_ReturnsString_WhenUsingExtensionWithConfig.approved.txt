@@ -1,4 +1,11 @@
 ﻿Family
+	GrandParents = Person[]
+		[0] = Person
+			Id = Guid
+			Height = 0
+		[1] = Person
+			Id = Guid
+			Height = 0
 	Parents = List`1
 		[0] = Person
 			Id = Guid
@@ -6,13 +13,15 @@
 		[1] = Person
 			Id = Guid
 			Height = 0
-	Children = Person[]
-		[0] = Person
-			Id = Guid
-			Height = 0
-		[1] = Person
-			Id = Guid
-			Height = 0
+	Children = Dictionary`2
+		[0] = KeyValuePair`2
+			Value = Person
+				Id = Guid
+				Height = 0
+		[1] = KeyValuePair`2
+			Value = Person
+				Id = Guid
+				Height = 0
 	Father = Person
 		Id = Guid
 		Height = 0

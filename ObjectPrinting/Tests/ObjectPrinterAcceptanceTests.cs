@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using ApprovalTests;
 using ApprovalTests.Namers;
 using ApprovalTests.Reporters;
@@ -21,8 +22,13 @@ namespace ObjectPrinting.Tests
                 Father = new Person { Name = "Alex", Age = 19 },
                 Mother = new Person { Name = "Kate", Age = 21 },
                 Age = 55335.57d,
+                GrandParents = [new Person { Name = "Alex", Age = 19 }, new Person { Name = "Kate", Age = 21 }],
                 Parents = [new Person { Name = "Alex", Age = 19 }, new Person { Name = "Kate", Age = 21 }],
-                Children = [new Person { Name = "Alex", Age = 19 }, new Person { Name = "Kate", Age = 21 }]
+                Children = new Dictionary<int, Person>
+                {
+                    [1] = new() { Name = "Alex", Age = 19 },
+                    [2] = new() { Name = "Kate", Age = 21 }
+                }
             };
         }
         
